@@ -7,7 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 ActiveRecord::Base.transaction do
   
-  Project.create(title: "New Project!", description: "This is my project!")
+  Project.create(title: "Awesome New Project",
+                 description: "Look at this project. It is a nice project.")
   Item.create(project_id: 1, title: "First Task",
               description: "This is the first task of my project", done: false)
   Item.create(project_id: 1, title: "Second Task",
@@ -20,7 +21,7 @@ ActiveRecord::Base.transaction do
   Item.create(project_id: 2, title: "Find an upholsterer",
               description: "Ask neighbors for recommendations", done: false)
   Item.create(project_id: 2, title: "Get an Estimate",
-              description: "Call upholstery company and sned them the info on the couch", done: false)
+              description: "Contact upholstery company and give them info on the couch", done: false)
   Item.create(project_id: 2, title: "Make a Budget",
               description: "Can we afford leather cushion?", done: false)
   Item.create(project_id: 2, title: "Make a decision",

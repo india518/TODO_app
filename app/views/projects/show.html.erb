@@ -1,0 +1,22 @@
+<h1><%= @project.title%></h1>
+
+<blockquote><%= @project.description %></blockquote>
+	
+<p>
+	<% unless @project.items.empty? %>
+		<ul>
+		<% @project.items.each do |item| %>
+		  <li><%= link_to item.title, item_url(item) %></li>
+		<% end %>
+	    </ul>
+	<% end %>
+</p>
+
+<p><%= link_to "Add an item to this project", new_item_url %></p>
+
+<p><%= link_to "Edit this project", edit_project_url(@project) %></p>
+
+<p><%= link_to "Delete project", project_url(@project), :method => :delete,
+	   confirm: "Do you really want to delete #{@project.title}?"%></p>
+
+<p><%= link_to "Return to Project List", projects_url %></p>
