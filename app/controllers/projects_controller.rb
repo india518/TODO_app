@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   
   def new
     @project = Project.new
+    @selected_team = params[:team_id] if params[:team_id]
   end
   
   def create

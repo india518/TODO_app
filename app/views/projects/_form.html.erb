@@ -6,14 +6,24 @@
 		<% end %>
 	</ul>
 
+	<%= f.label :team %>
+	<% if @selected_team %>
+	  <%= f.collection_select :team_id, Team.all, :id, :name,
+	                          :selected => @selected_team %>
+	<% else %>
+	  <%= f.collection_select :team_id, Team.all, :id, :name %>	
+	<% end %>
+	  <br />
+
+
 	<%= f.label :title %>
 	<%= f.text_field :title %>
 	<br />
-	
+
 	<p>
 	<%= f.label :description %>
 	<%= f.text_area :description %>
-    </p>
+	</p>
 
 	<%= f.submit %>
 

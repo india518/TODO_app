@@ -10,9 +10,7 @@ class ItemsController < ApplicationController
   
   def new
     @item = Item.new
-    if params[:project_id]
-      @selected_project = params[:project_id]
-    end
+    @selected_project = params[:project_id] if params[:project_id]
   end
   
   def create

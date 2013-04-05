@@ -1,5 +1,8 @@
 <h1><%= @project.title%></h1>
 
+<p><b>Team: </b><%= link_to @project.team.name, team_url(@project.team) %></p>
+
+<p><b>Description: </b></p>
 <blockquote><%= @project.description %></blockquote>
 	
 <p>

@@ -1,0 +1,20 @@
+<h1>Here's a List of <%= @team.name%>'s Projects</h1>
+
+<p>
+	<% unless @team.projects.empty? %>
+		<ul>
+		<% @team.projects.each do |project| %>
+		  <li><%= link_to project.title, project_url(project) %></li>
+		<% end %>
+	    </ul>
+	<% end %>
+</p>
+
+<p><%= link_to "Create a new project for #{@team.name}", new_team_project_url(@team) %></p>
+
+<p><%= link_to "Edit this team", edit_team_url(@team) %></p>
+
+<p><%= link_to "Delete team", team_url(@team), :method => :delete,
+	   confirm: "Do you really want to delete the #{@team.name} team?"%></p>
+
+<p><%= link_to "Return to Team List", teams_url %></p>
