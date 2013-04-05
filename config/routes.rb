@@ -1,4 +1,6 @@
 TodoApp::Application.routes.draw do
+  resources :users
+  
   resources :teams do
       resources :projects, :only => [:index, :new, :create]
   end
