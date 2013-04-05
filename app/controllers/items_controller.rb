@@ -10,6 +10,9 @@ class ItemsController < ApplicationController
   
   def new
     @item = Item.new
+    if params[:project_id]
+      @selected_project = params[:project_id]
+    end
   end
   
   def create
@@ -34,7 +37,7 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-		redirect_to items_url
+		redirect_to project_url(@item.project)
   end
   
 end

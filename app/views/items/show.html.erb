@@ -1,5 +1,6 @@
-<h1> <%= @item.title %> for <%= @item.project.title %></h1>
-	
+<h1> Item "<%= @item.title %>" for the <%= @item.project.title %> Project</h1>
+
+<h3>Description: </h3>
 <blockquote><%= @item.description %></blockquote>
 
 <p>Status: <%= @item.done? %></p>
@@ -8,5 +9,7 @@
 
 <p><%= link_to "Delete item", item_url(@item), :method => :delete,
 	   confirm: "Do you really want to delete #{@item.title}?"%></p>
+	   
+<p><%= link_to "Return to #{@item.project.title}", project_url(@item.project) %></p>
 
 <p><%= link_to "Return to Items List", items_url %></p>

@@ -1,0 +1,33 @@
+<%= form_for(@item) do |f| %>
+
+	<ul>
+		<% @item.errors.full_messages.each do |error| %>
+			<li><%= error %></li>
+		<% end %>
+	</ul>
+
+	<%= f.label :project %>
+	<% if @selected_project %>
+	  <%= f.collection_select :project_id, Project.all, :id, :title, :selected => @selected_project %>
+	<% else %>
+	  <%= f.collection_select :project_id, Project.all, :id, :title %>	
+	<% end %>
+	  <br />
+	
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<br />
+	
+	<%= f.radio_button :done, 0, :checked => !@item.done %>
+	<%= f.label :done, "Incomplete", :value => 0 %>
+	<%= f.radio_button :done, 1 %>
+	<%= f.label :done, "Complete!", :value => 1 %>
+	
+	<p>
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+    </p>
+
+	<%= f.submit %>
+
+<% end %>
