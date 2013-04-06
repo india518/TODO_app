@@ -10,6 +10,24 @@
 	<%= f.label :name %>
 	<%= f.text_field :name %>
     </p>
+	
+	<% User.all.each do |user| %>
+	  <%= 
+	    check_box_tag(
+	      "team[user_ids][]",
+	      user.id,
+	      @team.user_ids.include?(user.id), # set default for on/off?
+	      :id => "team_user_ids_#{user.id}" # HTML for label
+	    )
+	    %>
+	  
+       <%= label_tag "team_user_ids_#{user.id}", user.name%>
+       <br>
+    <% end %>
+	
+	<!-- when we remove all teams -->
+	<%= hidden_field_tag "team[user_ids][]" %>
+	
 
 	<%= f.submit %>
 
