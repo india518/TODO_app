@@ -1,0 +1,27 @@
+<h1>Here's what <%= @user.name%> is working on!</h1>
+
+<p>
+	<% unless @user.teams.empty? %>
+		<ul>
+		<% @user.teams.each do |team| %>
+		  <% unless team.projects.empty? %>
+		    <li> Projects for <%= link_to team.name, team_url(team) %></li>
+		 	<ul> 
+	  		<% team.projects.each do |project| %>
+	  		  <li><%= link_to project.title, project_url(project) %></li>
+	  		<% end %>		  
+	        </ul>
+		  </p>
+		  <% end %>
+		<% end %>
+	    </ul>
+	<% end %>
+</p>
+
+
+<p><%= link_to "Edit #{@user.name}'s information", edit_user_url(@user) %></p>
+
+<p><%= link_to "Delete user", user_url(@user), :method => :delete,
+	   confirm: "Do you really want to delete #{@user.name}?"%></p>
+
+<p><%= link_to "Return to User List", users_url %></p>

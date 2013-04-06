@@ -1,11 +1,13 @@
 <h1> A Master List of All the Wonderful and Amazing Projects!</h1>
 	
 <p>
-	<ul>
-	<% @projects.each do |project| %>
-	  <li><%= link_to project.title, project_url(project.id) %></li>
+	 <% unless @projects.empty? %>
+		<ul>
+		<% @projects.each do |project| %>
+		  <li><%= link_to project.title, project_url(project.id) %></li>
+		<% end %>
+	    </ul>
 	<% end %>
-    </ul>
 </p>
 
 <p><%= link_to "Create New Project", new_project_url %></p>
