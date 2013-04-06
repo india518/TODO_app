@@ -4,16 +4,18 @@
 
 <p><b>Description: </b></p>
 <blockquote><%= @project.description %></blockquote>
-	
-<p>
+
+<p><%=link_to "View the items for this project", project_items_url(@project)%>
+
+<!-- <p>
 	<% unless @project.items.empty? %>
 		<ul>
 		<% @project.items.each do |item| %>
-		  <li><%= link_to item.title, item_url(item) %></li>
+		  <li><%#= link_to item.title, item_url(item) %></li>
 		<% end %>
 	    </ul>
 	<% end %>
-</p>
+</p> -->
 
 <p><%= link_to "Add an item to this project", new_project_item_url(@project) %></p>
 

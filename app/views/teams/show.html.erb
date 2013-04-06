@@ -1,4 +1,4 @@
-<h1>Here's a List of <%= @team.name%>'s Projects</h1>
+<h1>Information About <%= @team.name%></h1>
 
 <p>
 	<% unless @team.users.empty? %>
@@ -29,5 +29,3 @@
 	   confirm: "Do you really want to delete the #{@team.name} team?"%></p>
 
 <p><%= link_to "Return to Team List", teams_url %></p>
-
-<p><%= link_to "Check out all our users!", users_url %></p>

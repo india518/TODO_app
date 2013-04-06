@@ -12,4 +12,4 @@
 	   
 <p><%= link_to "Return to #{@item.project.title}", project_url(@item.project) %></p>
 
-<p><%= link_to "Return to Items List", items_url %></p>
+<p><%= link_to "Return to Items List", project_items_url(@item.project) %></p>

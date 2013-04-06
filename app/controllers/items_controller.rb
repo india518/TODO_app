@@ -1,7 +1,11 @@
 class ItemsController < ApplicationController
   
   def index
-    @items = Item.all
+    @items = Item
+    if params[:project_id]
+      @items = @items.where(project_id: params[:project_id])
+    end
+    @items = @items.all
   end
   
   def show
