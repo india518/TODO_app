@@ -1,15 +1,32 @@
-<%= form_for(@team) do |f| %>
+<%= form_for(@user) do |f| %>
 
-	<ul>
-		<% @team.errors.full_messages.each do |error| %>
+	<p><ul>
+		<% @user.errors.full_messages.each do |error| %>
 			<li><%= error %></li>
 		<% end %>
-	</ul>
+	</ul></p>
 	
 	<p>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
     </p>
+	
+	<% Team.all.each do |team| %>
+	  <%= 
+	    check_box_tag(
+	      "user[team_ids][]",
+	      team.id,
+	      @user.team_ids.include?(team.id), # set default for on/off?
+	      :id => "user_team_ids_#{team.id}" # HTML for label
+	    )
+	    %>
+	  
+       <%= label_tag "user_team_ids_#{team.id}", team.name%>
+       <br>
+    <% end %>
+	
+	<!-- when we remove all teams -->
+	<%= hidden_field_tag "user[team_ids][]" %>
 
 	<%= f.submit %>
 
